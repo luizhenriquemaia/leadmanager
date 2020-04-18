@@ -38,9 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'accounts',
     'frontend',
-    'rest_framework'
+    'rest_framework',
+    'knox'
 ]
+
+# Telling the django that we use knox for authentication
+# BUGIN CORRECT
+##### this DEFAULT_AUTHENTICATION_CLASSES is a tuple, if you only have 1 value you have to add a ","
+##### if you don't do that it's goin to look to that as a string raising a error
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication', )
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

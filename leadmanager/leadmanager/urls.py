@@ -6,5 +6,6 @@ urlpatterns = [
     # front-end has to render before the leads
     path('', include('frontend.urls')),
     path('', include('main.urls')),
-    path('admin/', admin.site.urls),
+    path('', include('accounts.urls'))
+    #path('admin/', admin.site.urls),
 ]
